@@ -1,2 +1,4 @@
-# Machine-Learning-techniques
-Repository of the subject Machine Learning techniques in the UCLM
+# Members
+## Carlos Córdoba Ruiz
+## Alvaro Angel-Moreno Pinilla
+## Julian Garcia Sanchez
