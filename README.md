@@ -1,5 +1,5 @@
 # Machine Learning techniques
-Repository for the machine learning techniques subject
+Repository for the machine learning techniques subject.
 
 ## Members
 * Carlos Córdoba Ruiz
