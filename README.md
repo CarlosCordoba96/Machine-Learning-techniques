@@ -1,4 +1,4 @@
-#Machine Learning techniques
+# Machine Learning techniques
 Repository for the machine learning techniques subject
 
 ## Members
