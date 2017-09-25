@@ -20,7 +20,7 @@ try:
                 data.append(row[4])
         else:
             if data != None:
-    			states.append(data)
+                states.append(data)
             data = []
             data.append(newest)
             est = newest
