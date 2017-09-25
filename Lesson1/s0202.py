@@ -13,17 +13,17 @@ try:
     reader = csv.reader(f)
     data = None
     for row in reader:
-    	newest = row[1]
-    	if est == newest:
+        newest = row[1]
+        if est == newest:
           # process the indentation spaces
     		if row[3].rfind("  ") == 2:
-    			data.append(row[4])
-    	else:    
-    		if data != None:
+                data.append(row[4])
+        else:
+            if data != None:
     			states.append(data)
-    		data = []
-    		data.append(newest)
-    		est = newest
+            data = []
+            data.append(newest)
+            est = newest
 finally:
     f.close()
 
