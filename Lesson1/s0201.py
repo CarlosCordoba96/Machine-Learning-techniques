@@ -14,7 +14,7 @@ boston = load_boston()
 X, y = boston.data,boston.target
 
 
-# ## Training a Model HOLA AXO
+# ## Training a Model HOLA AXO, QUE PASA TRONCO
 # The problem is to predict the price of the house according to other parameters, then, it is a Regression Problem
 
 from sklearn.linear_model import LinearRegression
