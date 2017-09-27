@@ -13,11 +13,13 @@ try:
     reader = csv.reader(f)
     data = None
     for row in reader:
-        newest = row[1]
-        if est == newest:
-            # process the indentation spaces
-            if row[3].rfind("  ") == 2:
-                data.append(row[4])
+        newest = row[0]
+        year =row[1]
+        if 'iq' == newest:
+            if 2004> year :
+                print row
+                if row[3].rfind("  ") == 2:
+                    data.append(row[4])
         else:
             if data != None:
                 states.append(data)
