@@ -40,7 +40,7 @@ try:
             if int(year) >= 2000 and int(year) <= 2003:
 
                 print row
-                del row[0]
+
                 for i in range(len(row)-1):
                     if (row[i] == ""):
                         row[i]=0
