@@ -26,9 +26,8 @@ try:
         year = row[1]
         if 'iq' == newest:
             if int(year) >= 2000 and int(year) <= 2003:
+                del row[3] #remove the row containing a date format value
                 print row
-                #for i in range(1,len(row)):
-                #data.append(row)
                 writer.writerow(row)
 finally:
     f.close()
