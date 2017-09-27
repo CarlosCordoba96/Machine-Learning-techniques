@@ -28,8 +28,11 @@ try:
         if 'iq' == newest:
             if int(year) >= 2000 and int(year) <= 2003:
                 print row
-                #for i in range(1,len(row)):
-                #data.append(row)
+                del row[0]
+                for i in range(len(row)-1):
+                    if (row[i] == ""):
+                        row[i] = 0
+                        print "atenció"
                 writer.writerow(row)
 finally:
     f.close()
