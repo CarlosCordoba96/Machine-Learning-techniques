@@ -9,6 +9,7 @@ import csv
 f = open("Data\dengue_features_train.csv", 'rt')
 states = []
 est = ""
+
 try:
     g = open("2009pivot.csv", 'wt')
     writer = csv.writer(g)
