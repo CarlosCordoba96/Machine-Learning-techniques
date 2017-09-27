@@ -14,9 +14,9 @@ try:
     data = None
     for row in reader:
         newest = row[0]
-        year =row[1]
+        year = row[1]
         if 'iq' == newest:
-            if 2004> year :
+            if int(year) >= 2000 and int(year) <= 2003:
                 print row
                 if row[3].rfind("  ") == 2:
                     data.append(row[4])
