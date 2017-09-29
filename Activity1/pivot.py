@@ -4,6 +4,8 @@
 """
 
 import csv
+import pandas as pd 
+
 def nullvalues():
     trigonometric = pd.read_csv("Data\ 2009pivot.csv", index_col='city')
     print trigonometric
