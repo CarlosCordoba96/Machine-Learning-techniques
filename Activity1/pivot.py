@@ -4,13 +4,11 @@
 """
 
 import csv
-def unique_list(l):
-    x = []
-    for a in l:
-        if a not in x:
-            x.append(a)
-    return x
-
+def nullvalues():
+    trigonometric = pd.read_csv("Data\ 2009pivot.csv", index_col='city')
+    print trigonometric
+    trigonometric.to_csv("Data\ 2009pivotn.csv", sep=',')
+    
 
 
 
@@ -49,6 +47,9 @@ try:
                 writer.writerow(row)
 
 
-    fallos=sorted(unique_list(fallos))#lista de columnas donde falla y hay un 0
+
+    
 finally:
     f.close()
+nullvalues()#lista de columnas donde falla y hay un 0
+
