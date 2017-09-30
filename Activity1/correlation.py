@@ -23,7 +23,6 @@ for line in f:
 			states.append(map(float, row))          #EL PROBLEMA ESTÁ AQUÍ
 	count += 1
 
-
 # plotting the correlation matrix
 #http://glowingpython.blogspot.com.es/2012/10/visualizing-correlation-matrices.html
 R = corrcoef(transpose(states))

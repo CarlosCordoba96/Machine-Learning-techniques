@@ -17,7 +17,7 @@ for line in f:
         row = line.replace('"', '').split(",")
         # row.pop(0)
         if row != []:
-            data = [int(el) for el in row]
+            data = [float(el) for el in row]
             states.append(data)
     count += 1
 
@@ -36,8 +36,8 @@ numbers = numpy.arange(len(X_pca))
 fig, ax = plt.subplots()
 for i in range(len(X_pca)):
     plt.text(X_pca[i][0], X_pca[i][1], numbers[i])
-plt.xlim(-1, 4)
-plt.ylim(-0.2, 1)
+plt.xlim(-1, 2)
+plt.ylim(-1, 1.5)
 ax.grid(True)
 fig.tight_layout()
 plt.show()
