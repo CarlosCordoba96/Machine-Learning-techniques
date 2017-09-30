@@ -7,9 +7,9 @@ import csv
 import pandas as pd 
 
 def nullvalues():
-    trigonometric = pd.read_csv("Data\ iq_2000_2003_pivot.csv", index_col='weekofyear')
-    print trigonometric
-    trigonometric.to_csv("Data\ iq_2000_2003_pivot.csv", sep=',')
+    table = pd.read_csv("Data\ iq_2000_2003_pivot.csv", index_col='weekofyear')
+    table = table.fillna(table.mean())
+    table.to_csv("Data\ iq_2000_2003_pivot.csv", sep=',')
 
 
 f = open("Data\dengue_features_train.csv", 'rt')
