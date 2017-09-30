@@ -7,7 +7,7 @@ import csv
 import pandas as pd 
 
 def nullvalues():
-    trigonometric = pd.read_csv("Data\ iq_2000_2003_pivot.csv", index_col='week_start_date')
+    trigonometric = pd.read_csv("Data\ iq_2000_2003_pivot.csv", index_col='weekofyear')
     print trigonometric
     trigonometric.to_csv("Data\ iq_2000_2003_pivot.csv", sep=',')
 
@@ -18,8 +18,9 @@ est = ""
 try:
     g = open("Data\ iq_2000_2003_pivot.csv", 'wt')
     writer = csv.writer(g)
-    writer.writerow((#'city', 'year', 'weekofyear',
-                     'week_start_date', 'ndvi_ne', 'ndvi_nw', 'ndvi_se', 'ndvi_sw',
+    writer.writerow((#city', 'year',
+                     'weekofyear',#'week_start_date',
+                     'ndvi_ne', 'ndvi_nw', 'ndvi_se', 'ndvi_sw',
                      'precipitation_amt_mm', 'reanalysis_air_temp_k', 'reanalysis_avg_temp_k',
                      'reanalysis_dew_point_temp_k', 'reanalysis_max_air_temp_k', 'reanalysis_min_air_temp_k',
                      'reanalysis_precip_amt_kg_per_m2', 'reanalysis_relative_humidity_percent',
@@ -38,10 +39,10 @@ try:
             i_year = int(year)
             if i_year >= 2000 and i_year <= 2003:
 
-                #Elimina ciudad, año y semana del año (semana podría ser identificador, pero no es un dato único, se repite en muchas filas)
+                #Elimina ciudad, año y fecha (semana podría ser identificador, pero no es un dato único, se repite en muchas filas)
                 del row[0]
                 del row[0]
-                del row[0]
+                del row[1]
 
                 print row
 
@@ -50,6 +51,7 @@ try:
                         row[i]=0
                         fallos.append(i)
                         print "atenció"
+                    row[i] = float(row[i])
                 writer.writerow(row)
 
 finally:

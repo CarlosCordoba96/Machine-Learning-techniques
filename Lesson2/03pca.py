@@ -15,7 +15,7 @@ f = codecs.open("2009pivot.csv", "r", "utf-8")
 states = []
 count = 0
 for line in f:
-	if count > 0: 
+	if count > 0:
 		# remove double quotes
 		row = line.replace ('"', '').split(",")
 		row.pop(0)
