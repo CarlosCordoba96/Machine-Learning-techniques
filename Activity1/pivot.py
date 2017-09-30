@@ -7,21 +7,19 @@ import csv
 import pandas as pd 
 
 def nullvalues():
-    trigonometric = pd.read_csv("Data\ 2009pivot.csv", index_col='city')
+    trigonometric = pd.read_csv("Data\ iq_2000_2003_pivot.csv", index_col='week_start_date')
     print trigonometric
-    trigonometric.to_csv("Data\ 2009pivotn.csv", sep=',')
-    
-
+    trigonometric.to_csv("Data\ iq_2000_2003_pivot.csv", sep=',')
 
 
 f = open("Data\dengue_features_train.csv", 'rt')
-states = []
 est = ""
 
 try:
-    g = open("Data\ 2009pivot.csv", 'wt')
+    g = open("Data\ iq_2000_2003_pivot.csv", 'wt')
     writer = csv.writer(g)
-    writer.writerow(('city', 'year', 'weekofyear', 'week_start_date', 'ndvi_ne', 'ndvi_nw', 'ndvi_se', 'ndvi_sw',
+    writer.writerow((#'city', 'year', 'weekofyear',
+                     'week_start_date', 'ndvi_ne', 'ndvi_nw', 'ndvi_se', 'ndvi_sw',
                      'precipitation_amt_mm', 'reanalysis_air_temp_k', 'reanalysis_avg_temp_k',
                      'reanalysis_dew_point_temp_k', 'reanalysis_max_air_temp_k', 'reanalysis_min_air_temp_k',
                      'reanalysis_precip_amt_kg_per_m2', 'reanalysis_relative_humidity_percent',
@@ -31,13 +29,19 @@ try:
     reader = csv.reader(f)
     data = None
 
-    fallos=[]
+    fallos = []
     for row in reader:
 
         newest = row[0]
         year = row[1]
         if 'iq' == newest:
-            if int(year) >= 2000 and int(year) <= 2003:
+            i_year = int(year)
+            if i_year >= 2000 and i_year <= 2003:
+
+                #Elimina ciudad, año y semana del año (semana podría ser identificador, pero no es un dato único, se repite en muchas filas)
+                del row[0]
+                del row[0]
+                del row[0]
 
                 print row
 
@@ -48,10 +52,7 @@ try:
                         print "atenció"
                 writer.writerow(row)
 
-
-
-    
 finally:
     f.close()
-nullvalues()#lista de columnas donde falla y hay un 0
+nullvalues()    #lista de columnas donde falla y hay un 0
 
