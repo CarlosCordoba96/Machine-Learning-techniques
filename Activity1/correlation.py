@@ -10,7 +10,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# 0. Load Data  (Se debería convertir en función porque se repite mucho)
+# 0. Load Data
 f = codecs.open("Data\ iq_2000_2003_pivot.csv", "r", "utf-8")
 states = []
 count = 0
@@ -20,7 +20,7 @@ for line in f:
 		row = line.replace ('"', '').split(",")
 		row.pop(0)
 		if row != []:
-			states.append(map(float, row))          #EL PROBLEMA ESTÁ AQUÍ
+			states.append(map(float, row))#Using float
 	count += 1
 
 # plotting the correlation matrix
