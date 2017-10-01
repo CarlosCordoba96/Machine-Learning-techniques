@@ -12,4 +12,4 @@ We take the initial data, and only save the ones that we need for our computatio
 
 ## Final thoughts
 
-In conclusion after seeing the different graphs we can say that our data is not very symetric; as there are some zones were the data is correlated but; on the other hand there are other zones where is very visible that the data is not correlated.
+In conclusion after seeing the different graphs we can say that our data is not very symetric; as there are some zones were the data is correlated but; on the other hand there are other zones where is very visible that the data is more diverse.
