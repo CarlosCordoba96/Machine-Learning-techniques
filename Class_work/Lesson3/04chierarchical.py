@@ -34,10 +34,10 @@ print "%s\t%6.2f" % ('Average Distance', avSim)
 from scipy import cluster
 clusters = cluster.hierarchy.linkage(matsim, method = 'complete')
 # http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.cluster.hierarchy.dendrogram.html
-cluster.hierarchy.dendrogram(clusters, color_threshold=6)
+cluster.hierarchy.dendrogram(clusters, color_threshold=4)
 plt.show()
 
-cut = 6 # !!!! ad-hoc
+cut = 4 # !!!! ad-hoc
 labels = cluster.hierarchy.fcluster(clusters, cut , criterion = 'distance')
 print 'Number of clusters %d' % (len(set(labels)))
 

@@ -23,7 +23,7 @@ min_max_scaler = preprocessing.MinMaxScaler()
 states = min_max_scaler.fit_transform(states)
 	
 # 2. Compute the similarity matrix
-dist = sklearn.neighbors.DistanceMetric.get_metric('euclidean')
+dist = sklearn.neighbors.DistanceMetric.get_metric('euclidean') #'single' da el grupo más compacto y los outliers a los lados
 matsim = dist.pairwise(states)
 avSim = numpy.average(matsim)
 print "%s\t%6.2f" % ('Average Distance', avSim)
