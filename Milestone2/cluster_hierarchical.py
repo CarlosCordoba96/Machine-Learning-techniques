@@ -46,6 +46,3 @@ plt.show()
 # cut = float(input("Threshold cut:"))
 clusters = cluster.hierarchy.fcluster(clusters, 4 , criterion = 'distance')
 
-# 5. Show the usa Map
-import mapausa
-mapausa.show_usa_map(clusters)
