@@ -4,15 +4,22 @@
 """
 
 import csv
+import pandas as pd 
+
+def nullvalues():
+    #Using pandas package the method fillna replace the NaN values with the mean of the columns
+    table = pd.read_csv("Data\ iq_2000_2003_pivot.csv", index_col='weekofyear')
+    table = table.fillna(table.mean())
+    table.to_csv("Data\ iq_2000_2003_pivot.csv", sep=',')
 
 
 f = open("Data\dengue_features_train.csv", 'rt')
-states = []
 est = ""
+
 try:
-    g = open("2009pivot.csv", 'wt')
+    g = open("Data\ iq_2000_2003_pivot.csv", 'wt')
     writer = csv.writer(g)
-    writer.writerow(('city', 'year', 'weekofyear', 'week_start_date', 'ndvi_ne', 'ndvi_nw', 'ndvi_se', 'ndvi_sw',
+    writer.writerow(('weekofyear', 'ndvi_ne', 'ndvi_nw', 'ndvi_se', 'ndvi_sw',      #The initial data that we are using
                      'precipitation_amt_mm', 'reanalysis_air_temp_k', 'reanalysis_avg_temp_k',
                      'reanalysis_dew_point_temp_k', 'reanalysis_max_air_temp_k', 'reanalysis_min_air_temp_k',
                      'reanalysis_precip_amt_kg_per_m2', 'reanalysis_relative_humidity_percent',
@@ -21,13 +28,23 @@ try:
                      'station_precip_mm'))
     reader = csv.reader(f)
     data = None
+
     for row in reader:
+
         newest = row[0]
         year = row[1]
         if 'iq' == newest:
-            if int(year) >= 2000 and int(year) <= 2003:
-                del row[3] #remove the row containing a date format value
+            i_year = int(year)
+            if i_year >= 2000 and i_year <= 2003:
+
+                #Removes city, year and date
+                del row[0]
+                del row[0]
+                del row[1]
+
                 print row
                 writer.writerow(row)
+
 finally:
     f.close()
+nullvalues()    #List of columns where there's a 0
