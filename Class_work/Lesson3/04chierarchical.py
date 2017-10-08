@@ -37,7 +37,7 @@ clusters = cluster.hierarchy.linkage(matsim, method = 'complete')
 cluster.hierarchy.dendrogram(clusters, color_threshold=4)
 plt.show()
 
-cut = 4 # !!!! ad-hoc
+cut = 3 # !!!! ad-hoc
 labels = cluster.hierarchy.fcluster(clusters, cut , criterion = 'distance')
 print 'Number of clusters %d' % (len(set(labels)))
 
