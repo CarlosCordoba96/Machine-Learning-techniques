@@ -31,7 +31,6 @@ try:
 
     for row in reader:
 
-        correct_row = True
         newest = row[0]
         year = row[1]
         if 'iq' == newest:
@@ -42,15 +41,8 @@ try:
                 del row[0]
                 del row[0]
                 del row[1]
-
-                # print row
-                for i in range(len(row)):
-                    if row[i] == "":
-                        correct_row = False
-
-                if (correct_row):
-                    print row
-                    writer.writerow(row)
+                print row
+                writer.writerow(row)
 
 finally:
     f.close()
