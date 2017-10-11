@@ -9,7 +9,7 @@ import pandas as pd
 def nullvalues():
     #Using pandas package the method fillna replace the NaN values with the mean of the columns
     table = pd.read_csv("Data\ iq_2000_2003_pivot.csv", index_col='weekofyear')
-    table = table.fillna(table.mean())
+    table = table.fillna(0)
     table.to_csv("Data\ iq_2000_2003_pivot.csv", sep=',')
 
 
@@ -54,4 +54,4 @@ try:
 
 finally:
     f.close()
-#nullvalues()    #List of columns where there's a 0
+    nullvalues()    #List of columns where there's a 0
