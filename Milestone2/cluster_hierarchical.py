@@ -16,33 +16,40 @@ import sklearn.neighbors
 
 # 0. Load Data
 import loaddata
-states,names = loaddata.load_data_usa("Data/iq_2000_2003_pivot.csv")
+cases = loaddata.load_data_usa("Data/iq_2000_2003_pivot.csv")
  
  
-#1. Normalization of the data
-#http://scikit-learn.org/stable/modules/preprocessing.html
-from sklearn import preprocessing 
+### 2. Normalization of the data
 min_max_scaler = preprocessing.MinMaxScaler()
-states = min_max_scaler.fit_transform(states)   #Falla aquí
-	
-# 2. Compute the similarity matrix
-dist = sklearn.neighbors.DistanceMetric.get_metric('euclidean') #'single' da el grupo más compacto y los outliers a los lados
-matsim = dist.pairwise(states)
+norm_cases = min_max_scaler.fit_transform(cases)
+
+### 3. Compute the similarity matrix
+dist = sklearn.neighbors.DistanceMetric.get_metric('euclidean') 
+matsim = dist.pairwise(norm_cases)
 avSim = numpy.average(matsim)
 print "%s\t%6.2f" % ('Average Distance', avSim)
 
-# 3. Building the Dendrogram	
-# http://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html#scipy.cluster.hierarchy.linkage
+### 4. Building the Dendrogram	
+cut = 5
 clusters = cluster.hierarchy.linkage(matsim, method = 'complete')
-# http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.cluster.hierarchy.dendrogram.html
-cluster.hierarchy.dendrogram(clusters, color_threshold = 4)
+cluster.hierarchy.dendrogram(clusters, color_threshold = cut)
 plt.show()
 
+### 5. Characterization
+labels = cluster.hierarchy.fcluster(clusters, cut , criterion = 'distance')
+print 'Nº of clusters %d' % (len(set(labels)))
 
-# 4. Cutting the dendrogram
-#Forms flat clusters from the hierarchical clustering defined by the linkage matrix clusters
-# introduce the value after dendrogram visualization
+n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
+print('Estimated number of clusters: %d' % n_clusters_)
+     
 
-# cut = float(input("Threshold cut:"))
-clusters = cluster.hierarchy.fcluster(clusters, 4 , criterion = 'distance')
+for c in range(1,n_clusters_+1):
+    s = ''
+    print 'Group', c
+    for i in range(len(cases[0])):
+        column = [row[i] for j,row in enumerate(cases) if labels[j] == c]
+        if len(column) != 0:
+            s = "%s,%s" % (s,numpy.mean(column))
+    print s
 
+# Sacar numero de elementos de cada cluster

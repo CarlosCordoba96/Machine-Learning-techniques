@@ -7,20 +7,25 @@ Created on Mon Mar 14 12:05:59 2016
 import codecs
 def load_data_usa(path):
         
-    f = codecs.open("Data/iq_2000_2003_pivot.csv", "r", "utf-8")
-    states = []
-    names = []
-    count = 0
-    for line in f:
-        if count > 0: 
-		# remove double quotes
-		row = line.replace ('"', '').split(",")
-		row.pop(0)
-		if row != []:
-			states.append(map(float, row))
-        else:
-           names = line.replace ('"', '').split(",")[1:]
-        count += 1
+    try:
+        f = codecs.open("Data/iq_2000_2003_pivot.csv", "r", "utf-8")
+        cases = []
+        count = 0
+        for line in f:
+            if count > 0: 
+                # Insert a 0 in unfilled fields
+                while ",," in line:
+                    line = line.replace(',,', ',0,')
+                line = line.replace(',\n', ',0')
+                
+                row = line.split(",")
+                if row != []:
+                            
+                    cases.append(map(float, row))
+            count += 1
+        f.close()
+    except:
+        print("Error while loading the data")
  
    
-    return states,names
+    return cases
