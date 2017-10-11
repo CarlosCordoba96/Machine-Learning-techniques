@@ -22,4 +22,4 @@ G:
 H:
 I:
 
-3. The best denogram
+3. The best dendogram
