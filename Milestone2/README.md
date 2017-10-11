@@ -10,16 +10,16 @@ With the array 'labels' generated, we have every element of our data set related
 
 2. Labeling and description of the clusters.
 
-We have found 9 clusters in total. Using the 'labels' information as a new feature in our data, we filtered this information in order to study the the information of the elements corresponding to each cluster/group of cluster that will be defined (in alphabetical order):
+We have found 9 clusters in total. Using the 'labels' information as a new feature in our data, we filtered this information in order to study the the information of the elements corresponding to each cluster/group of cluster that will be defined (in alphabetical order). Some groups that have several clusters inside them, those clusters are grouped because they have elements that are very related (in some features), even when they are different in representation.
 
-A: 
-B:
-C:
-D:
-E:
-F:
-G:
-H:
-I:
+A: A, B y C
+B: B y C
+C: B y C
+D: D, E y F
+E: E y F
+F: E y F
+G: G, H e I
+H: I y H
+I: I y H
 
 3. The best dendogram
