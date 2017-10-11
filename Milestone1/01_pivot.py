@@ -31,20 +31,27 @@ try:
 
     for row in reader:
 
+        correct_row = True
         newest = row[0]
         year = row[1]
         if 'iq' == newest:
             i_year = int(year)
             if i_year >= 2000 and i_year <= 2003:
 
-                #Removes city, year and date
+                # Removes city, year and date
                 del row[0]
                 del row[0]
                 del row[1]
 
-                print row
-                writer.writerow(row)
+                # print row
+                for i in range(len(row)):
+                    if row[i] == "":
+                        correct_row = False
+
+                if (correct_row):
+                    print row
+                    writer.writerow(row)
 
 finally:
     f.close()
-nullvalues()    #List of columns where there's a 0
+#nullvalues()    #List of columns where there's a 0
