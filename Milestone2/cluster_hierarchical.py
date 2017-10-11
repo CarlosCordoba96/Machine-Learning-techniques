@@ -30,7 +30,7 @@ avSim = numpy.average(matsim)
 print "%s\t%6.2f" % ('Average Distance', avSim)
 
 ### 4. Building the Dendrogram	
-cut = 5
+cut = 6
 clusters = cluster.hierarchy.linkage(matsim, method = 'complete')
 cluster.hierarchy.dendrogram(clusters, color_threshold = cut)
 plt.show()
