@@ -20,6 +20,6 @@ Cluster A: This cluster is formed by groups 1,2 and 3. It is characterized for h
 Cluster B: This cluster is formed of groups 4 and 5. This cluster is formed due to similarities in the means of features such as ndvi_ne,	ndvi_nw,	ndvi_se, or	ndvi_sw.
  
 
-F: This cluster is formed of groups 6,7 and 8. This is the bigger cluster found. It has very similar features, but you can appreciate some big distances among of them. This fact leads us to think that it contains features on the temperature.
+Cluster C: This cluster is formed of groups 6,7 and 8. This is the bigger cluster found. It has very similar features, but you can appreciate some big distances among of them. This fact leads us to think that it contains features on the temperature.
 
 
