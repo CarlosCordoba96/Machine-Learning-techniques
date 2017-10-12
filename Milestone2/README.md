@@ -13,15 +13,13 @@ With the array 'labels' generated, we have every element of our data set related
 
 2. Labeling and description of the clusters.
 
-We have found 8 clusters in total. Using the 'labels' information as a new feature in our data, we filtered this information in order to study the the information of the elements corresponding to each cluster/group of cluster that will be defined (in alphabetical order). Some groups that have several clusters inside them, those clusters are grouped because they have elements that are very related (in some features), even when they are different in representation.
+We have found 8 clusters in total. Using the 'labels' information as a new feature in our data, we filtered this information in order to study the the information of the elements corresponding to each cluster/group of cluster that will be defined (in alphabetical order). Some groups that have several clusters inside them, those clusters are grouped because they have elements that are very related (in some features), even when they are different in representation. After analyzing the data we have conclude that there are 3 main clusters:
 
-A: A, B y C
-B: B y C
-C: B y C
-D: D y E
-E: D y E
-F: F, G y H
-G: G y H
-H: G y H
+Cluster A: This cluster is formed by groups 1,2 and 3. It is characterized for having far more outliers than any of the other groups. This is probably the data about precipitation, as it has very different values.
 
-3. The best dendogram
+Cluster B: This cluster is formed of groups 4 and 5. This cluster is formed due to similarities in the means of features such as ndvi_ne,	ndvi_nw,	ndvi_se, or	ndvi_sw.
+ 
+
+F: This cluster is formed of groups 6,7 and 8. This is the bigger cluster found. It has very similar features, but you can appreciate some big distances among of them. This fact leads us to think that it contains features on the temperature.
+
+
