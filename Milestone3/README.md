@@ -1,13 +1,9 @@
 
-Members of the group, 
-Data Set (city and years)
-Number of elements of your data set
-the chosen number of clusters (k) and a brief explanation about why you have chosen this value of k.
+1. Data Set
+Number of elements of your data set (removing outliers and explaining why we take those specificly).
 
-Also, you have to attach the graphical result of your clustering (only one chart - PCA results- with elements represented by in different colours).
+2. K-Means
+Say how many clusters do we choose (maybe 3 for the 3 groups created in Milestone 2). Explain chosen value of k. Explain too what option of k-means did we use (random, k-means++...)
 
-The script(s) must be uploaded on the github/bitbucket repository related to the Class Work.
-
-Recommendations: 
-remove outliers before the clustering, test with different options of initialization (random, k-means++),
-(optional) select only a subset of features, or use only the PCA results
+3. Results
+Graphical result with the k-means representing the elements in a PCA with different colours (clusters/k).
