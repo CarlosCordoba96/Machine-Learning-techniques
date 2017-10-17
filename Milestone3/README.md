@@ -12,6 +12,7 @@ The k-means method that we dediced to use is 'k-means++'. We tried out both meth
 3. Results
 
 ![K-Means++](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone3/k-means%2B%2B.png)
+
 Here we have the graphical representation of our application of k-means. We got 3 separated groups, which we can study and compare to hierarchical agglomerative clustering algorithm.
 -The purple centroid groups most of the elements that belonged to cluster 4, so we can say that those elements are very related in both algorithms.
 -The green centroid represents a large variety of elements, represented in different clusters. We can't say much about this aggrupation or the concrete attributes of any of them.
