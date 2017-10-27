@@ -6,8 +6,8 @@ We have tried different distances on our script [cluster_hierarchical.py](https:
 
 We studied the results in hierarchical clustering and PCA. In the second one, we could see the dimensional representation of all the elements divided in the clusters. There were some elements that could act as outliers in PCA but appeared in a grouped cluster in the hierarchical representation, while some elements in PCA that seemed to be grouped in a cluster are represented as outliers in clustering. Here you can see the results:
 
-![Clustering](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone2/Images/Clustering.png)
-![PCA](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone2/Images/PCA_Cluster.png)
+![Clustering](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone2/Images/Clustering.jpg)
+![PCA](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone2/Images/PCA_Cluster.jpg)
 
 Once the array 'labels' is generated, we have every element of our data set related to the cluster where it belongs. This can help us in many ways, like checking it to get quick information to add to our data set and help filtering our elements; and work with them depending on their cluster.
 
