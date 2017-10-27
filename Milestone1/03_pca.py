@@ -15,23 +15,23 @@ for line in f:
     if count > 0:
         # remove double quotes
         row = line.replace('"', '').split(",")
-        # row.pop(0)
         if row != []:
             data = [float(el) for el in row]
             states.append(data)
     count += 1
 
-# 1. Normalization of the data (la mas importante)
+#Normalization of the data for the representation, using MinMaxScaler
 min_max_scaler = preprocessing.MinMaxScaler()
 states = min_max_scaler.fit_transform(states)
 
-# 2. PCA Estimation
+#PCA Estimation for each one of the values
 estimator = PCA(n_components=2)
 X_pca = estimator.fit_transform(states)
 
 print(estimator.explained_variance_ratio_)
 
-# 3.  plot (17 dimensiones en gráfico de 2 dim)
+#Plotting the elements
+#The 17 dimensions are represented in the two dimensional plot
 numbers = numpy.arange(len(X_pca))
 fig, ax = plt.subplots()
 for i in range(len(X_pca)):
