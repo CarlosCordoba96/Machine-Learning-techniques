@@ -6,7 +6,7 @@ The elements that were removed belonged to clusters 2 and 3: Cluster 2 {10, 20, 
 
 # 2. K-Means
 
-At the ending of Milestone 2, we decided to group our 8 clusters in 3 different groups, where the elements where related in attributes or as individuals. To keep that relation between the elements, we set up our value of k at 3, in order to try to represent the same elements in the same groups. COMPROBAR CON LABELS().
+At the ending of Milestone 2, we decided to group our 8 clusters in 3 different groups, where the elements where related in attributes or as individuals. To keep that relation between the elements, we set up our value of k at 3, in order to try to represent the same elements in the same groups. Checking it with the information given by 'labels()' in the previous milestone, each one of the big clusters correspond to the centroids that we introduced into our dataset.
 The k-means method that we dediced to use is 'k-means++'. We tried out both methods, k-means++ and random, but the representation using random felt more ambiguous. However, the other representation seemed clearer and easier to understand and study.
 
 # 3. Results

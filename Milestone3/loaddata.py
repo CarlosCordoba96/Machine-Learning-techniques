@@ -6,7 +6,7 @@ Created on Mon Mar 14 12:05:59 2016
 """
 import codecs
 #Defines the method that takes our data set and saves it into a variable to work with it
-def load_data(path):
+def load_data():
         
     try:
         f = codecs.open("Data/iq_2000_2003_pivot.csv", "r", "utf-8")
