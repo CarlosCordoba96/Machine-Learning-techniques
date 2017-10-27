@@ -4,14 +4,10 @@ Created on Sat Oct 14 17:00:31 2017
 @author: Alvaro
 """
 
-import codecs
-import sklearn.neighbors
-import sys
 import matplotlib.pyplot as plt
-import numpy
 
-def plotdata(cases,labels,name): #def function plotdata
-#colors = ['black']
+
+def plotdata(cases,labels,name): #def plotdata for each of the representations (k-means, silhouette and distortion)
     fig, ax = plt.subplots()
     plt.scatter([row[0] for row in cases], [row[1] for row in cases], c=labels)
     ax.grid(True)
@@ -21,66 +17,40 @@ def plotdata(cases,labels,name): #def function plotdata
     plt.ylim(-1, 1.5)
     plt.show()
 
-
-# 0. load and plot data (datos.csv)
 # load data
 import loaddata
 cases = loaddata.load_data()
 
-### 1. Normalization of the data
+# 
 from sklearn.decomposition import PCA
 from sklearn import preprocessing
 
 min_max_scaler = preprocessing.MinMaxScaler()
 norm_cases = min_max_scaler.fit_transform(cases)
 
-#2. PCA Estimation
+# Creating the pca representation
 estimator = PCA (n_components = 2)
 X_pca = estimator.fit_transform(norm_cases)
 print(estimator.explained_variance_ratio_)
 labels = [0 for x in range(len(cases))]
-#plotdata(X_pca,labels,'basic')
 
 
-# 3. setting parameters
-k = 3
-init = "k-means++"
-iterations = 20 #  run 10 times with different random centroids
-max_iter = 300 # maximum number of iterations for each single run
+# Applies k-means with these different attributes
+k = 3 #Number of centroids
+init = "k-means++" #Method that we are using (k-means++ or random)
+iterations = 20 #Number of times that the centroids are moved in the mean of their values
+max_iter = 300 #Maximum number of moves(itearions)
 tol = 1e-04 # controls the tolerance with regard to the changes in the within-cluster sum-squared-error to declare convergence
-random_state = 0 # random
-# 4. Execute clustering
-from scipy import cluster
+random_state = 0 #Random state
+
+# Executing the clustering
 from sklearn.cluster import KMeans
 km = KMeans(k, init, n_init = iterations ,max_iter= max_iter, tol = tol,random_state = random_state)
 labels = km.fit_predict(norm_cases)
 
-### 5. Plot the results
+# Plots the results: PCA with the centroids, Silhouette coefficient and distortion
 plotdata(X_pca,labels, init)
 
-
-import codecs
-
-import sys
-import matplotlib.pyplot as plt
-import numpy
-
-from scipy import cluster
-from sklearn import preprocessing 
-import sklearn.neighbors
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
-from sklearn import metrics
-silhouettes = []
-
-for i in range(2, 14):
-    km = KMeans(i, init, n_init = iterations ,max_iter= max_iter, tol = tol,random_state = random_state)
-    labels = km.fit_predict(norm_cases)
-    silhouettes.append(metrics.silhouette_score(norm_cases, labels))
-
-
-# Plot Silhouette
-plt.plot(range(2,14), silhouettes , marker='o')
-plt.xlabel('Number of clusters')
-plt.ylabel('Silhouette')
-plt.show()
+print("Silhouette Coefficient: %0.3f"
+      % metrics.silhouette_score(norm_cases, labels))
+print('Distortion: %.2f' % km.inertia_)
