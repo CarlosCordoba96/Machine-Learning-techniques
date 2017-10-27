@@ -9,7 +9,7 @@ def load_data():
 #We retake the code of a previour version because we have some problems with our code
 ### 1. Load the data asigned
     try:
-        f = codecs.open("../Data/dengue_features_train.csv", "r", "utf-8")
+        f = codecs.open("../Data/dengue_features_train_out.csv", "r", "utf-8")
         cases = []
         count = 0
         for line in f:
