@@ -8,10 +8,11 @@ The columns labeled 'year', 'city', 'date' have been removed as they are not nec
 Not valid values have been turned into NaN to ease future tasks.
 
 * [02_correlation.py](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Activity1/02_correlation.py)
- In this script, the correlation coefficient is computed, and 2 different graphs are plotted for feature selection. This is useful for checking the simetry of our data.
+ In this script, the correlation coefficient is computed, and 2 different graphs are plotted for feature selection: [first graph](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone1/Images/correlation_1.png) and [second graph](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone1/Images/correlation_2.png). 
+ This is useful for checking the simetry of our data.
 
 * [03_pca.py](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Activity1/03_pca.py) 
-In this script, the PCA is computed in order to help us view the internal structure of our data.
+In this script, the PCA is computed in order to help us view the internal structure of our data. Here you can see the results [PCA](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone1/Images/pca.png)
 
 ## Overview
 
