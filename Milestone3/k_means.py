@@ -59,8 +59,28 @@ labels = km.fit_predict(norm_cases)
 plotdata(X_pca,labels, init)
 
 
+import codecs
+
+import sys
+import matplotlib.pyplot as plt
+import numpy
+
+from scipy import cluster
+from sklearn import preprocessing 
+import sklearn.neighbors
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+from sklearn import metrics
+silhouettes = []
+
+for i in range(2, 14):
+    km = KMeans(i, init, n_init = iterations ,max_iter= max_iter, tol = tol,random_state = random_state)
+    labels = km.fit_predict(norm_cases)
+    silhouettes.append(metrics.silhouette_score(norm_cases, labels))
 
 
-
-
-
+# Plot Silhouette
+plt.plot(range(2,14), silhouettes , marker='o')
+plt.xlabel('Number of clusters')
+plt.ylabel('Silhouette')
+plt.show()

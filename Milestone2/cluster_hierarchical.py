@@ -13,7 +13,7 @@ import sklearn.neighbors
 
 # Loads the data into array 'cases'
 import loaddata
-cases = loaddata.load_data("Data/iq_2000_2003_pivot.csv")
+cases = loaddata.load_data()
  
 # Normalization of the data to work with it in clustering
 min_max_scaler = preprocessing.MinMaxScaler()
