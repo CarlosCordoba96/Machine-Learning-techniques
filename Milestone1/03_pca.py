@@ -30,7 +30,7 @@ X_pca = estimator.fit_transform(states)
 
 print(estimator.explained_variance_ratio_)
 
-#Plotting the elements
+#Plotting the elements:
 #The 17 dimensions are represented in the two dimensional plot
 numbers = numpy.arange(len(X_pca))
 fig, ax = plt.subplots()
