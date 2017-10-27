@@ -3,7 +3,7 @@
 
 Studying the clustering in [Milestone 2](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone2), we took a look at two clusters (2 and 3) which are made of many individual elements. We defined them as 'outliers', and decided to remove these outliers to get a better performance of k-means algorithm.
 
-The elements that were removed belonged to clusters 2 and 3: Cluster 2 {10, 20, 25, 115} & Cluster 3 {51, 111, 104, 159}. We removed all of them and not some specific well-known outliers because if they belong to the same cluster, even some elements that don't look as outliers were more related to the outliers than the rest of elements. Based on that thought, we made that decision.
+The elements that were removed belonged to clusters 2 and 3: Cluster 2 {10, 24} & Cluster 3 {50, 112, 101, 162}. We removed all of them and not some specific well-known outliers because if they belong to the same cluster, even some elements that don't look as outliers were more related to the outliers than the rest of elements. Based on that thought, we made that decision.
 
 # 2. K-Means
 
