@@ -5,7 +5,8 @@ Created on Sat Oct 14 17:00:31 2017
 """
 
 import matplotlib.pyplot as plt
-
+from sklearn.decomposition import PCA
+from sklearn import preprocessing
 
 def plotdata(cases,labels,name): #def plotdata for each of the representations (k-means, silhouette and distortion)
     fig, ax = plt.subplots()
@@ -20,10 +21,6 @@ def plotdata(cases,labels,name): #def plotdata for each of the representations (
 # load data
 import loaddata
 cases = loaddata.load_data()
-
-# 
-from sklearn.decomposition import PCA
-from sklearn import preprocessing
 
 min_max_scaler = preprocessing.MinMaxScaler()
 norm_cases = min_max_scaler.fit_transform(cases)
