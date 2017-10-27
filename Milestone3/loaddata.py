@@ -9,7 +9,7 @@ import codecs
 def load_data():
         
     try:
-        f = codecs.open("Data/iq_2000_2003_pivot.csv", "r", "utf-8")
+        f = codecs.open("../Data/iq_2000_2003_pivot.csv", "r", "utf-8")
         cases = []
         count = 0
         for line in f:
