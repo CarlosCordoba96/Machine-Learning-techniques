@@ -17,11 +17,10 @@ We have found 9 clusters in total. Using the 'labels' information as a new featu
 
 Some groups have several clusters inside them, which are grouped because they have elements that are very related in some features, even when they are different in representation. After analyzing the data we have conclude that there are 3 main clusters:
 
-**Cluster A**: This cluster is formed by groups 1,2 and 3. It is characterized for having far more outliers than any of the other groups. This is probably the data about precipitation, as it has very different values.
+**Cluster A**: This cluster is formed by groups 7, 8 and 9. It is characterized for having far more outliers than any of the other groups. This is probably the data about precipitation, as it has very different values.
 
 **Cluster B**: This cluster is formed of groups 4 and 5. This cluster is formed due to similarities in the means of features such as ndvi_ne,	ndvi_nw,	ndvi_se, or	ndvi_sw.
- 
 
-**Cluster C**: This cluster is formed of groups 6,7 and 8. This is the bigger cluster found. It has very similar features, but you can appreciate some big distances among of them. This fact leads us to think that it contains features on the temperature.
+**Cluster C**: This cluster is formed of groups 1, 2 and 3. This is the bigger cluster found. It has very similar features, but you can appreciate some big distances among of them. This fact leads us to think that it contains features on the temperature.
 
 
