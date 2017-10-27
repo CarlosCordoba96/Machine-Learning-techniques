@@ -17,9 +17,11 @@ f = open("Data\dengue_features_train.csv", 'rt')
 est = ""
 
 try:
+    #Creation of our dataset
     g = open("Data\ iq_2000_2003_pivot.csv", 'wt')
     writer = csv.writer(g)
-    writer.writerow(('weekofyear', 'ndvi_ne', 'ndvi_nw', 'ndvi_se', 'ndvi_sw',      #The initial data that we are using
+    #Defining every row we are using in the initial dataset
+    writer.writerow(('weekofyear', 'ndvi_ne', 'ndvi_nw', 'ndvi_se', 'ndvi_sw',
                      'precipitation_amt_mm', 'reanalysis_air_temp_k', 'reanalysis_avg_temp_k',
                      'reanalysis_dew_point_temp_k', 'reanalysis_max_air_temp_k', 'reanalysis_min_air_temp_k',
                      'reanalysis_precip_amt_kg_per_m2', 'reanalysis_relative_humidity_percent',
@@ -30,7 +32,7 @@ try:
     data = None
 
     for row in reader:
-
+        #Distinguish the data we have to work with from the rest of elements
         newest = row[0]
         year = row[1]
         if 'iq' == newest:
@@ -42,6 +44,7 @@ try:
                 del row[0]
                 del row[1]
                 print row
+                #Adds the row that belongs to our initial dataset
                 writer.writerow(row)
 
 finally:
