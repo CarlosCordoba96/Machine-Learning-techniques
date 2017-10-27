@@ -60,3 +60,7 @@ plotdata(X_pca,labels, init)
 
 
 
+
+
+
+
