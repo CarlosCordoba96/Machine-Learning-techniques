@@ -13,6 +13,7 @@ information = pd.read_csv('Data/dengue_features_train.csv')
 information2=pd.read_csv('Data/dengue_labels_train.csv')
 result = pd.merge(information, information2, on=['city', 'year','weekofyear'])
 
+result = result.fillna(0)#There is some data as NaN
 
 #0.2 Explore Data
 plt.rcdefaults()
@@ -36,15 +37,25 @@ plt.show()
 
 
 from scipy.stats.stats import pearsonr 
-corr = [pearsonr(result['ndvi_ne'], result['total_cases'])[0], pearsonr(result['ndvi_se'], result['total_cases'])[0],
-        pearsonr(result['ndvi_sw'], result['total_cases'])[0], pearsonr(result['precipitation_amt_mm'], result['total_cases'])[0],
-        pearsonr(result['reanalysis_air_temp_k'], result['total_cases'])[0], pearsonr(result['reanalysis_avg_temp_k'], result['total_cases'])[0],
-        pearsonr(result['reanalysis_dew_point_temp_k'], result['total_cases'])[0], pearsonr(result['reanalysis_max_air_temp_k'], result['total_cases'])[0],
-        pearsonr(result['reanalysis_min_air_temp_k'], result['total_cases'])[0], pearsonr(result['reanalysis_precip_amt_kg_per_m2'], result['total_cases'])[0],
-        pearsonr(result['reanalysis_relative_humidity_percent'], result['total_cases'])[0], pearsonr(result['reanalysis_sat_precip_amt_mm'], result['total_cases'])[0],
-        pearsonr(result['reanalysis_specific_humidity_g_per_kg'], result['total_cases'])[0], pearsonr(result['reanalysis_tdtr_k'], result['total_cases'])[0],
-        pearsonr(result['station_avg_temp_c'], result['total_cases'])[0], pearsonr(result['station_diur_temp_rng_c'], result['total_cases'])[0],
-        pearsonr(result['station_max_temp_c'], result['total_cases'])[0], pearsonr(result['station_min_temp_c'], result['total_cases'])[0],
+corr = [pearsonr(result['ndvi_ne'], result['total_cases'])[0],
+        pearsonr(result['ndvi_nw'], result['total_cases'])[0],
+        pearsonr(result['ndvi_se'], result['total_cases'])[0],
+        pearsonr(result['ndvi_sw'], result['total_cases'])[0],
+        pearsonr(result['precipitation_amt_mm'], result['total_cases'])[0],
+        pearsonr(result['reanalysis_air_temp_k'], result['total_cases'])[0],
+        pearsonr(result['reanalysis_avg_temp_k'], result['total_cases'])[0],
+        pearsonr(result['reanalysis_dew_point_temp_k'], result['total_cases'])[0],
+        pearsonr(result['reanalysis_max_air_temp_k'], result['total_cases'])[0],
+        pearsonr(result['reanalysis_min_air_temp_k'], result['total_cases'])[0],
+        pearsonr(result['reanalysis_precip_amt_kg_per_m2'], result['total_cases'])[0],
+        pearsonr(result['reanalysis_relative_humidity_percent'], result['total_cases'])[0],
+        pearsonr(result['reanalysis_sat_precip_amt_mm'], result['total_cases'])[0],
+        pearsonr(result['reanalysis_specific_humidity_g_per_kg'], result['total_cases'])[0],
+        pearsonr(result['reanalysis_tdtr_k'], result['total_cases'])[0],
+        pearsonr(result['station_avg_temp_c'], result['total_cases'])[0],
+        pearsonr(result['station_diur_temp_rng_c'], result['total_cases'])[0],
+        pearsonr(result['station_max_temp_c'], result['total_cases'])[0],
+        pearsonr(result['station_min_temp_c'], result['total_cases'])[0],
         pearsonr(result['station_precip_mm'], result['total_cases'])[0]]
 
  
@@ -52,7 +63,7 @@ features= ('ndvi_ne','ndvi_nw','ndvi_se','ndvi_sw','precipitation_amt_mm','reana
 y_pos = np.arange(len(features))
  
 plt.bar(y_pos, corr, align='center', alpha=0.5)
-plt.xticks(y_pos, features)
+plt.xticks(y_pos, features,rotation='vertical')
 plt.ylabel('Correlation')
 plt.title('Correlation features vs target')
 
