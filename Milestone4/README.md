@@ -2,7 +2,9 @@
 
 ## 1.- Studying the correlation between features and total cases
 
-After this step, we have obtained this ![correlation graph](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone4/img/correlation.png).
+After this step, we have obtained this correlation graph:
+
+![correlation graph](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone4/img/correlation.png).
 
 We have studied the correlation of our dataset variables related to dengue cases. From this information, we have concluded that variables such as:
 
