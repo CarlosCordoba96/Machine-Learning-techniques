@@ -16,3 +16,7 @@ We have studied the correlation of our dataset variables related to dengue cases
 
 heavily influentiate the dengue cases. This leads us to think that the temperature and the humidity of a certain zone matters to dengue cases.
 
+## 2.- Feature Selection
+
+
+## 3.-  Building a Decision Tree Model 
