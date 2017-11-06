@@ -8,11 +8,11 @@ After this step, we have obtained this correlation graph:
 
 We have studied the correlation of our dataset variables related to dengue cases. From this information, we have concluded that variables such as:
 
-* reanalysis_avg_temp_k
-* reanalysis_min_air_temp_k
-* reanalysis_relative_humidity_percent
-* reanalysis_specific_humidity_g_per_kg
-* station_min_temp_c
+* reanalysis_dew_point_temp_k : Mean dew point temperature
+* reanalysis_min_air_temp_k : Minimum air temperature
+* reanalysis_relative_humidity_percent : Mean relative humidity
+* reanalysis_specific_humidity_g_per_kg : Mean specific humidity
+* station_min_temp_c : Minimum temperature
 
 heavily influentiate the dengue cases. This leads us to think that the temperature and the humidity of a certain zone matters to dengue cases.
 
