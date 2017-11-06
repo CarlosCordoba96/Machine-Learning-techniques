@@ -1,27 +1,36 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Mar 14 12:05:59 2016
-
 @author: FranciscoP.Romero
 """
 import codecs
-#Defines the method that takes our data set and saves it into a variable to work with it
-def load_data(path):
-        
+import sys
+def load_data():
+#We retake the code of a previour version because we have some problems with our code
+### 1. Load the data asigned
     try:
-        f = codecs.open("Data/iq_2000_2003_pivot.csv", "r", "utf-8")
+        f = codecs.open("../Data/dengue_features_train.csv", "r", "utf-8")
         cases = []
         count = 0
         for line in f:
-            if count > 0:              
+            if count > 0:
+                # Insert a 0 in unfilled fields
+                while ",," in line:
+                    line = line.replace(',,', ',0,')
+                line = line.replace(',\n', ',0')
+                
                 row = line.split(",")
-                if row != []:
-                            
-                    cases.append(map(float, row))
+                if row[0] == "iq":
+                    if int(row[1])>=2000 and int(row[1])<=2003:
+                        if row != []:
+                            row = row[4:]#We delete the 4 first columns because we consider outliers
+                            cases.append(map(float, row))
             count += 1
         f.close()
     except:
         print("Error while loading the data")
+        sys.exit()
+
  
    
     return cases
