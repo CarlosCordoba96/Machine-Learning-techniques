@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun Nov 05 19:30:57 2017
-
 @author: Julian
 """
 #imports
@@ -109,35 +108,6 @@ from sklearn.tree import export_graphviz
 dot_data = export_graphviz(regressor2, out_file='tree.dot', feature_names=my_features, 
                            filled=True, rounded=True)
 graph = graphviz.Source(dot_data)  
-graph 
-
-# 2.2 Model Plot
-
-# This visualization is only useful for a model of two predictors
-
-nx = 30
-ny = 30
-# creating a grid of points
-x_reanalysis_dew_point_temp_k = np.linspace(-5, 40, nx)
-y_station_min_temp_c = np.linspace(20, 80, ny)
-xx, yy = np.meshgrid(x_reanalysis_dew_point_temp_k, y_station_min_temp_c)
-# evaluating the regresson on all the points
-z_total_cases = regressor2.predict(np.array([xx.flatten(), yy.flatten()]).T)
-zz = np.reshape(z_total_cases, (nx, ny))
-
-
-fig = plt.figure(figsize=(8, 8))
-# plotting the predictions
-plt.pcolormesh(x_reanalysis_dew_point_temp_k, y_station_min_temp_c, zz, cmap=plt.cm.YlOrRd)
-plt.colorbar(label='Cases predicted') # add a colorbar on the right
-# plotting also the observations
-plt.scatter(features_selected2['reanalysis_dew_point_temp_k'], features_selected2['station_min_temp_c'], s=features_selected['total_cases']/25.0, c='g')
-# setting the limit for each axis
-plt.xlim(np.min(x_reanalysis_dew_point_temp_k), np.max(x_reanalysis_dew_point_temp_k))
-plt.ylim(np.min(y_station_min_temp_c), np.max(y_station_min_temp_c))
-plt.xlabel('reanalysis_dew_point_temp_k')
-plt.ylabel('station_min_temp_c')
-plt.show()
 
 # Compute the max 
 mae = []
