@@ -21,6 +21,9 @@ They heavily influentiate the dengue cases. This leads us to think that the temp
 Based on the previous conclusion, we have removed all features except the ones previously mentioned, 'weekofyear' and 'year' and stored the selected features in the variable "selected_features".
 
 ## 3.-  Building a Decision Tree Model 
+* Max depth
+
+![mae](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone4/img/mae.png).
 
 * Features Relevances
 
