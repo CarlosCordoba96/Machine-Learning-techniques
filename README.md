@@ -5,6 +5,7 @@ Repository for the machine learning techniques subject.
 * [Milestone 1](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone1)
 * [Milestone 2](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone2)
 * [Milestone 3](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone3)
+* [Milestone 4](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone4)
 
 ## Software
 This project has been coded using Python 2.7
