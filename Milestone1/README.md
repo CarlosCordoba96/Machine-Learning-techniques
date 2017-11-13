@@ -10,16 +10,16 @@ Besides retrieving only the data for Iquitos in 2000-2003 from the original data
 
 The correlation coefficient helps us to see the simetry of our dataset. We have computed the correlation coefficient and represented it in two different graphs. This task is done in the file [02_correlation.py](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Activity1/02_correlation.py)
 
-[first graph](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone1/Images/correlation_1.png)
+![first graph](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone1/Images/correlation_1.png)
 
-[second graph](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone1/Images/correlation_2.png). 
+![second graph](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone1/Images/correlation_2.png). 
 
 
 ## 3. PCA
 
 The PCA is a test used to check the internal structure of the data. This is computed in the file [03_pca.py](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Activity1/03_pca.py) . The resulting graph is shown in the picture below:
 
-[PCA](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone1/Images/pca.png)
+![PCA](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone1/Images/pca.png)
 
 ## Final thoughts
 
