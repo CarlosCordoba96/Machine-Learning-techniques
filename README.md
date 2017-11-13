@@ -12,7 +12,7 @@ In recent years dengue fever has been spreading. Historically, the disease has b
 
 ## Goal
 Our goal is to predict the total_cases label for each city, year and weekofyear in the test set. There are two cities, San Juan and Iquitos. We will make one submission that contains predictions for both cities.
-![Mosquito](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Img/Dengue.jpg?raw=true)
+
 
 ## Milestones
 * [Milestone 1](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone1)
