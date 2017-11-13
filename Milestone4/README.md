@@ -21,6 +21,7 @@ They heavily influentiate the dengue cases. This leads us to think that the temp
 Based on the previous conclusion, we have removed all features except the ones previously mentioned, 'weekofyear' and 'year' and stored the selected features in the variable "selected_features".
 
 ## 3.-  Building a Decision Tree Model 
+
 * **Max depth**: Studying our algorithm, we concluded that our system is in a normal size, not overfitted or underfitted. The best depth to create our decision tree, taking into account this graph, would be 11, where the error is minimum as our study guess.
 
 ![mae](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone4/img/mae.png).
@@ -31,7 +32,7 @@ Based on the previous conclusion, we have removed all features except the ones p
 
 * **Features Relevances**: To select what features of our dataset should be included into the decision tree, we decided to apply a study on those attributes, in order to know the relevance that we have in our dengue cases.
 
-![feature_relevances](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone4/img/feature_relevances.PNG).
+![feature_relevances](https://github.com/CarlosCordoba96/Machine-Learning-techniques/blob/master/Milestone4/img/features_2000_2003.PNG).
 
 With this results we realised that some of the more correlated features don't have any information to the relevance of the cases. With this graph, we decided to only apply two features in our decision tree: 'reanalysis_dew_point_temp_k' and 'station_min_temp_c'.
 
