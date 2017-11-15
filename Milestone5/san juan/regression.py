@@ -13,7 +13,10 @@ information = pd.read_csv('Data/dengue_features_train.csv')
 information2=pd.read_csv('Data/dengue_labels_train.csv')
 result = pd.merge(information, information2, on=['city', 'year','weekofyear'])
 
-result = result.fillna(0)#There is some data as NaN
+result=result.drop(result.index[[88,140,400,452,752,712,764,495]])#principal outliers
+
+result=result.drop(result.index[[700,502,361,253,254,330,493]])
+result = result.fillna(result.mean())#There is some data as NaN
 
 #0.2 Explore Data
 plt.rcdefaults()
@@ -114,7 +117,7 @@ plt.show()
 # criterion: mse mean squared error, which is equal to variance reduction as feature selection criterion
 #splitter: best/random
 # max_depth: low value avoid overfitting
-regressor = DecisionTreeRegressor(criterion='mse', max_depth=3, random_state=0)
+regressor = DecisionTreeRegressor(criterion='mse', max_depth=5, random_state=0)
 #1.2 Model construction
 #regressor.fit(bikes[['temperature', 'humidity', 'windspeed']], bikes['count'])
 # one feature predictor
