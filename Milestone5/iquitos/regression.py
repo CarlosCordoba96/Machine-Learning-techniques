@@ -12,8 +12,9 @@ import graphviz
 information = pd.read_csv('Data/dengue_features_train.csv')
 information2=pd.read_csv('Data/dengue_labels_train.csv')
 result = pd.merge(information, information2, on=['city', 'year','weekofyear'])
-
-result = result.fillna(0)#There is some data as NaN
+result=result.drop(result.index[[22,58,94,183,235,274,337,338,365,391,443,465,474,495,496,509]])
+result=result.drop(result.index[[101,3,50,300,10,112,268,239,474]])
+result = result.fillna(result.mean())#There is some data as NaN
 
 #0.2 Explore Data
 plt.rcdefaults()

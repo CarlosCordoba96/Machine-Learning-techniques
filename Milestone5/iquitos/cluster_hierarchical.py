@@ -10,11 +10,22 @@ import numpy
 from scipy import cluster
 from sklearn import preprocessing 
 import sklearn.neighbors
+import pandas as pd
 
 # Loads the data into array 'cases'
 import loaddata
-cases = loaddata.load_data()
+#cases = loaddata.load_data()
+cases=pd.read_csv('Data/dengue_features_train.csv')
  
+# Remove outliers that present problems for the initial reading
+cases=cases.drop(cases.index[[22,58,94,183,235,274,337,338,365,391,443,465,474,495,496,509]])
+cases=cases.drop(cases.index[[101,3,50,300,10,112,268,239,474]])
+    
+cases=cases.fillna(cases.mean())
+print cases
+cases.to_csv('out.csv',index=False)
+cases=loaddata.load_data()
+
 # Normalization of the data to work with it in clustering
 min_max_scaler = preprocessing.MinMaxScaler()
 norm_cases = min_max_scaler.fit_transform(cases)
@@ -65,3 +76,6 @@ plt.ylim(-1, 1.5)
 ax.grid(True)
 fig.tight_layout()
 plt.show()
+
+# 10,24,50,101,108,112,210,239,262,300,406,407,474,490
+#and 22,58,94,183,235,274,337,338,365,391,443,465,474,495,496,509:
