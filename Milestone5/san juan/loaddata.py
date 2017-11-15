@@ -9,11 +9,11 @@ def load_data():
 #We retake the code of a previour version because we have some problems with our code
 ### 1. Load the data asigned
     try:
-        f = codecs.open("Data/dengue_features_train.csv", "r", "utf-8")
+        f = codecs.open("out.csv", "r", "utf-8")
         cases = []
         count = 0
         for line in f:
-            if count > 0 and count!=88 and count != 140 and count != 400 and count != 452 and count != 752 and count !=712 and count != 764  :
+            if count > 0:
                 # Insert a 0 in unfilled fields
                 while ",," in line:
                     line = line.replace(',,', ',0,')
