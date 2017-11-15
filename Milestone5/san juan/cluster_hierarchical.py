@@ -16,14 +16,16 @@ import loaddata
 #cases = loaddata.load_data()
 cases = pd.read_csv('Data/dengue_features_train.csv')
 
-list=[88,140,400,452,752,712,764,495]
-for i in list:
-    cases=cases.drop(cases.index[[i]])
+cases=cases.drop(cases.index[[88,140,400,452,752,712,764,495]])#principal outliers
+
+cases=cases.drop(cases.index[[700,502,361,253,254,330,493]])
 
 cases=cases.fillna(cases.mean())
 print cases
 cases.to_csv('out.csv',  index = False)
 cases = loaddata.load_data()
+
+
 #for i in list:
 #    del cases[i] 
 
@@ -70,7 +72,7 @@ numbers = numpy.arange(len(X_pca))
 fig, ax = plt.subplots()
 for i in range(len(X_pca)):
     plt.text(X_pca[i][0], X_pca[i][1], numbers[i], color=colors[labels[i]])
-plt.xlim(-1, 1.5)
+plt.xlim(-1, 2)
 plt.ylim(-1, 1.5)
 ax.grid(True)
 fig.tight_layout()
