@@ -4,23 +4,24 @@ import matplotlib.pyplot as plt
 from sklearn import neighbors
 
 #Loading data
-def loaddata():   
+def loaddata():
+    #read sanjuan
+    sj = pd.read_csv('Data/sanjuan/dengue_features_train.csv')
+    sj2=pd.read_csv('Data/sanjuan/dengue_labels_train.csv')
+    sanjuan = pd.merge(sj, sj2, on=['city', 'year','weekofyear'])
+    
+    sanjuan=sanjuan.drop(sanjuan.index[[88,140,400,452,752,712,764,495]])#principal outliers
+    
+    sanjuan=sanjuan.drop(sanjuan.index[[700,502,361,253,254,330,493]])
+    sanjuan = sanjuan.fillna(sanjuan.mean())#There is some data as NaN
+    
+    return sanjuan
 
-    #read iquitos
-    iq = pd.read_csv('Data/iquitos/dengue_features_train.csv')
-    iq2=pd.read_csv('Data/iquitos/dengue_labels_train.csv')
-    iquitos = pd.merge(iq, iq2, on=['city', 'year','weekofyear'])
-    iquitos=iquitos.drop(iquitos.index[[22,58,94,183,235,274,337,338,365,391,443,465,474,495,496,509]])
-    iquitos=iquitos.drop(iquitos.index[[101,3,50,300,10,112,268,239,474]])
-    iquitos = iquitos.fillna(iquitos.mean())#There is some data as NaN
-
-    return iquitos
 
 data=loaddata()
 
-
 #Parametrization
-X = data[['weekofyear','year','reanalysis_min_air_temp_k']]
+X = data[['weekofyear','year','reanalysis_specific_humidity_g_per_kg']]
 y = data['total_cases']
 xx = np.stack (i for i in range (len(y)))
 
@@ -44,9 +45,8 @@ for i, weights in enumerate(['uniform', 'distance']):
 plt.legend()
 plt.show() 
 
-
 # Fit regression model
-n_neighbors = 9
+n_neighbors = 8
 
 for i, weights in enumerate(['uniform', 'distance']):
     knn = neighbors.KNeighborsRegressor(n_neighbors, weights=weights)
