@@ -62,8 +62,6 @@ for i, weights in enumerate(['uniform', 'distance']):
 
 plt.show()
 
-
-
 #read test data
 datosTest = pd.read_csv("Data/dengue_features_test_iquitos.csv")
 datosTest=datosTest.fillna(datosTest.mean())
