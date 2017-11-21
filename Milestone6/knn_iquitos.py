@@ -61,3 +61,36 @@ for i, weights in enumerate(['uniform', 'distance']):
                                                                 weights))
 
 plt.show()
+
+
+
+#read test data
+datosTest = pd.read_csv("Data/dengue_features_test_iquitos.csv")
+datosTest=datosTest.fillna(datosTest.mean())
+test = datosTest[['weekofyear','year','reanalysis_min_air_temp_k']]
+
+
+# prediction
+knn = neighbors.KNeighborsRegressor(n_neighbors, weights='distance')
+prediccion = knn.fit(X,y).predict(test)
+
+
+# show prediction
+
+xx = np.stack(i for i in range(len(prediccion)))
+plt.subplot(2, 1, i + 1)
+plt.plot(xx, prediccion, c='g', label='prediction')
+plt.axis('tight')
+plt.legend()
+plt.title("KNeighborsRegressor (k = %i, weights = '%s')" % (n_neighbors,weights))
+
+plt.show()
+
+datosTest['total_cases']=prediccion
+
+datosTest['total_cases']=datosTest['total_cases'].astype(int)
+
+final=datosTest[['city','year','weekofyear','total_cases']]
+
+
+final.to_csv('predictediquitos.csv',index=False)
