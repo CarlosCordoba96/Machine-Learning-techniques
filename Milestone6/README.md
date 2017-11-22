@@ -3,7 +3,7 @@
 The objective of this Milestone is to apply all the previous knowledge on our featured dataset to generate a feature selection for each city. Some parametrization tests as well as the kNN are also computed in order to produce the final results.
 
 ## Feature Selection
-Finally, we decided to include some new features in our model, respect to the previous milestone. In the 'iquitos' prediction, we added 'reanalysis_min_air_temp_k' to 'weekofyear' and 'year', while selecting on 'san juan', we added '' to our model.
+Finally, we decided to include some new features in our model, respect to the previous milestone. In the 'iquitos' prediction, we added 'reanalysis_min_air_temp_k' to 'weekofyear' and 'year', while selecting on 'san juan', we added 'weekofyear','year' and 'reanalysis_specific_humidity_g_per_kg' to our model.
 
 ## Parametrization
 In both parametrizations of our model we selected as 'X' axis our selected features, and 'total_cases' for 'y' axis.
