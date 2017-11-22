@@ -45,8 +45,19 @@ for i, weights in enumerate(['uniform', 'distance']):
 plt.legend()
 plt.show() 
 
+min_val=1000000
+j=0
+for i in range(0,len(total_scores)):
+    if total_scores[i]<min_val:
+        min_val=total_scores[i]
+        j=i
+        
+print "the min value is:"
+    
+print "{} - with value- {}".format(j,min_val)
+
 # Fit regression model
-n_neighbors = 8
+n_neighbors = 28
 
 for i, weights in enumerate(['uniform', 'distance']):
     knn = neighbors.KNeighborsRegressor(n_neighbors, weights=weights)
@@ -85,7 +96,9 @@ plt.legend()
 plt.title("KNeighborsRegressor (k = %i, weights = '%s')" % (n_neighbors,weights))
 
 plt.show()
-
+for i in range(0,len(prediccion)):
+    prediccion[i]=round(prediccion[i],0)
+    
 datosTest['total_cases']=prediccion
 
 datosTest['total_cases']=datosTest['total_cases'].astype(int)
