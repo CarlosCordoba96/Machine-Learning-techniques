@@ -14,21 +14,21 @@ def loaddata():
     
     sanjuan=sanjuan.drop(sanjuan.index[[700,502,361,253,254,330,493]])
     sanjuan = sanjuan.fillna(sanjuan.mean())#There is some data as NaN
-    
     return sanjuan
 
 
 data=loaddata()
 
 #Parametrization
-X = data[['weekofyear','year','reanalysis_specific_humidity_g_per_kg']]
+X = data[['weekofyear','reanalysis_specific_humidity_g_per_kg']]
 y = data['total_cases']
 xx = np.stack (i for i in range (len(y)))
 
 
 #Cross validation analysis
 from sklearn.cross_validation import cross_val_score
-
+min_val=1000000
+j=0
 for i, weights in enumerate(['uniform', 'distance']):
     total_scores = []
     for n_neighbors in range(1,30):
@@ -41,12 +41,15 @@ for i, weights in enumerate(['uniform', 'distance']):
     plt.plot(range(0,len(total_scores)), total_scores, 
              marker='o', label=weights)
     plt.ylabel('cv score')
+    for z in range(0,len(total_scores)):
+        if total_scores[z]<min_val:
+            min_val=total_scores[z]
+            j=z
 
 plt.legend()
 plt.show() 
 
-min_val=1000000
-j=0
+
 for i in range(0,len(total_scores)):
     if total_scores[i]<min_val:
         min_val=total_scores[i]
@@ -57,7 +60,7 @@ print "the min value is:"
 print "{} - with value- {}".format(j,min_val)
 
 # Fit regression model
-n_neighbors = 28
+n_neighbors = j
 
 for i, weights in enumerate(['uniform', 'distance']):
     knn = neighbors.KNeighborsRegressor(n_neighbors, weights=weights)
@@ -77,8 +80,8 @@ plt.show()
 
 #read test data
 datosTest = pd.read_csv("Data/dengue_features_test_sanjuan.csv")
-datosTest=datosTest.fillna(datosTest.mean())
-test = datosTest[['weekofyear','year','reanalysis_specific_humidity_g_per_kg']]
+datosTest=datosTest.fillna(method='ffill')
+test = datosTest[['weekofyear','reanalysis_specific_humidity_g_per_kg']]
 
 
 # prediction
@@ -96,8 +99,8 @@ plt.legend()
 plt.title("KNeighborsRegressor (k = %i, weights = '%s')" % (n_neighbors,weights))
 
 plt.show()
-for i in range(0,len(prediccion)):
-    prediccion[i]=round(prediccion[i],0)
+#for i in range(0,len(prediccion)):
+#    prediccion[i]=round(prediccion[i],0)
     
 datosTest['total_cases']=prediccion
 

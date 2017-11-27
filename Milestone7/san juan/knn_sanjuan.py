@@ -96,8 +96,8 @@ plt.legend()
 plt.title("KNeighborsRegressor (k = %i, weights = '%s')" % (n_neighbors,weights))
 
 plt.show()
-for i in range(0,len(prediccion)):
-    prediccion[i]=round(prediccion[i],0)
+#for i in range(0,len(prediccion)):
+#    prediccion[i]=round(prediccion[i],0)
     
 datosTest['total_cases']=prediccion
 

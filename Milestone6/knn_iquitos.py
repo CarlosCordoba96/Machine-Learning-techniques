@@ -20,16 +20,18 @@ data=loaddata()
 
 
 #Parametrization
-X = data[['weekofyear','year','reanalysis_min_air_temp_k']]
+X = data[['weekofyear','reanalysis_min_air_temp_k']]
 y = data['total_cases']
 xx = np.stack (i for i in range (len(y)))
 
 
 #Cross validation analysis
 from sklearn.cross_validation import cross_val_score
-
+min_val=1000000
+j=0
 for i, weights in enumerate(['uniform', 'distance']):
     total_scores = []
+    
     for n_neighbors in range(1,30):
         knn = neighbors.KNeighborsRegressor(n_neighbors, weights=weights)
         knn.fit(X,y)
@@ -40,22 +42,27 @@ for i, weights in enumerate(['uniform', 'distance']):
     plt.plot(range(0,len(total_scores)), total_scores, 
              marker='o', label=weights)
     plt.ylabel('cv score')
+    for z in range(0,len(total_scores)):
+        if total_scores[z]<min_val:
+            min_val=total_scores[z]
+            j=z
 
 plt.legend()
 plt.show()
-min_val=1000000
-j=0
-for i in range(0,len(total_scores)):
-    if total_scores[i]<min_val:
-        min_val=total_scores[i]
-        j=i
-        
+
+#==============================================================================
+# for i in range(0,len(total_scores)):
+#     if total_scores[i]<min_val:
+#         min_val=total_scores[i]
+#         j=i
+#         
+#==============================================================================
 print "the min value is:"
     
 print "{} - with value- {}".format(j,min_val)
 
 # Fit regression model
-n_neighbors = 28
+n_neighbors = j
 
 for i, weights in enumerate(['uniform', 'distance']):
     knn = neighbors.KNeighborsRegressor(n_neighbors, weights=weights)
@@ -73,8 +80,8 @@ plt.show()
 
 #read test data
 datosTest = pd.read_csv("Data/dengue_features_test_iquitos.csv")
-datosTest=datosTest.fillna(datosTest.mean())
-test = datosTest[['weekofyear','year','reanalysis_min_air_temp_k']]
+datosTest=datosTest.fillna(method='ffill')
+test = datosTest[['weekofyear','reanalysis_min_air_temp_k']]
 
 
 # prediction
@@ -93,8 +100,8 @@ plt.title("KNeighborsRegressor (k = %i, weights = '%s')" % (n_neighbors,weights)
 
 plt.show()
 
-for i in range(0,len(prediccion)):
-    prediccion[i]=round(prediccion[i],0)
+#for i in range(0,len(prediccion)):
+#    prediccion[i]=round(prediccion[i],0)
 
 datosTest['total_cases']=prediccion
 
