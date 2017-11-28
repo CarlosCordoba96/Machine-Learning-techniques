@@ -18,6 +18,6 @@ The objective of this milestone is only to improve our model. In this documentat
 - Score: 26.0313
 
 # 5th submission
-- Changed the way of selecting the n_neighbors parameter of the knn algorithm.
+- Changed the way of selecting the n_neighbors value of the knn algorithm.
 - Selected the uniform, in the parameter weights of knn.
 - Score: 25.9663
