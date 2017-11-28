@@ -53,6 +53,7 @@ print "the min value is:"
     
 print "{} - with value- {}".format(j,min_val)
 
+import numpy
 # Fit regression model
 n_neighbors = 6
 
@@ -77,7 +78,7 @@ test = datosTest[feat]
 
 
 # prediction
-knn = neighbors.KNeighborsRegressor(n_neighbors, weights='distance')
+knn = neighbors.KNeighborsRegressor(n_neighbors, weights='uniform')
 prediccion = knn.fit(X,y).predict(test)
 
 
@@ -88,7 +89,8 @@ plt.subplot(2, 1, i + 1)
 plt.plot(xx, prediccion, c='g', label='prediction')
 plt.axis('tight')
 plt.legend()
-plt.title("KNeighborsRegressor (k = %i, weights = '%s')" % (n_neighbors,weights))
+weights='uniform'
+plt.title("KNeighborsRegressor (k = %i, weights = '%s')" % (n_neighbors ,weights))
 
 plt.show()
 
