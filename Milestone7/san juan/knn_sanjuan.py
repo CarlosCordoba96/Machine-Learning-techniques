@@ -47,17 +47,15 @@ plt.show()
 
 min_val=1000000
 j=0
-for i in range(0,len(total_scores)):
-    if total_scores[i]<min_val:
-        min_val=total_scores[i]
-        j=i
+
         
 print "the min value is:"
     
 print "{} - with value- {}".format(j,min_val)
 
+import numpy
 # Fit regression model
-n_neighbors = 27
+n_neighbors = numpy.argmin(total_scores)+1
 
 for i, weights in enumerate(['uniform', 'distance']):
     knn = neighbors.KNeighborsRegressor(n_neighbors, weights=weights)
