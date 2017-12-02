@@ -78,7 +78,7 @@ test = datosTest[feat]
 
 
 # prediction
-knn = neighbors.KNeighborsRegressor(n_neighbors, weights='uniform')
+knn = neighbors.KNeighborsRegressor(n_neighbors, weights='distance')
 prediccion = knn.fit(X,y).predict(test)
 
 

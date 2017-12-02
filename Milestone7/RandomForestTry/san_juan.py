@@ -73,18 +73,6 @@ print tabulate(list1, headers=['Feature', 'Relevance'])
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 #**************************************************************
 #TEST: DONT YOU DARE TO TOUCH UNDER THIS LINE
 #**************************************************************
