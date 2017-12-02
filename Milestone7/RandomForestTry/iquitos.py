@@ -118,3 +118,14 @@ print 'Feature Relevancies'
 list1 = zip(feat, regressor.feature_importances_)
 from tabulate import tabulate
 print tabulate(list1, headers=['Feature', 'Relevance'])
+
+#PRINTING
+
+datosTest['total_cases']=prediccion
+
+datosTest['total_cases']=datosTest['total_cases'].astype(int)
+
+final=datosTest[['city','year','weekofyear','total_cases']]
+
+
+final.to_csv('predictediquitos.csv',index=False)
