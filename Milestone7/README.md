@@ -26,3 +26,7 @@ The objective of this milestone is only to improve our model. In this documentat
 - We tried to apply Random Forest in our model. In order to do so, we estimated about creating 1000 decission trees for each city, with the corresponding depth for each one. San Juan random forests have depth 5, based on the study of Mean Absolute Error by the Depth of the tree that we did in Milestone 5. In the case of Iquitos, doing the same study, our trees have depth 3.
 - The resulting predictions were quite different from the kNN ones. To check if the Mean Absolute Error of Random Forest prediction would be lower, we splited our Training Data in Training and Test itself. Then, we applied random forest to that training data and tried that out in the test. The results seemed very reliable, so we finally uploaded the submission.
 - Score: 24.6683
+
+# 7th submission
+- We tried to merge both models, applying kNN to San Juan and Random Forest to Iquitos. That's because we thought that Random Forest didn't work in San Juan as well as in Iquitos. But we were wrong.
+- Score: 25.3558
