@@ -30,3 +30,7 @@ The objective of this milestone is only to improve our model. In this documentat
 # 7th submission
 - We tried to merge both models, applying kNN to San Juan and Random Forest to Iquitos. That's because we thought that Random Forest didn't work in San Juan as well as in Iquitos. But we were wrong.
 - Score: 25.3558
+
+# 8th submission
+- We tried to improve our model by applying a higher number of estimations for random forest creation on each city. We finally tried creating 10000 decision trees for each city. The score that we got told us that bigger "forests" don't always give better results.
+- Score: 24.6707
