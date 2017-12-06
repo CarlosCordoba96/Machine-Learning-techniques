@@ -21,7 +21,7 @@ Our goal is to predict the total_cases label for each city, year and weekofyear 
 * [Milestone 4: Decision Trees for Regression](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone4)
 * [Milestone 5: Features Engineering (study and selection)](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone5)
 * [Milestone 6: Predictive Model Building](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone6)
-* [Milestone 7: Model Improvement](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone7)
+* [Milestone 7: Model Self-improvement](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone7)
 
 ## Software
 This project has been coded using Python 2.7, with IDE Spyder for coding and compilation.
