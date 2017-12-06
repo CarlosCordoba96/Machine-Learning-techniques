@@ -15,13 +15,16 @@ Our goal is to predict the total_cases label for each city, year and weekofyear 
 
 
 ## Milestones
-* [Milestone 1](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone1)
-* [Milestone 2](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone2)
-* [Milestone 3](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone3)
-* [Milestone 4](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone4)
+* [Milestone 1: Principal Component Analysis](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone1)
+* [Milestone 2: Application of Hierarchical Clustering](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone2)
+* [Milestone 3: Application of K-means](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone3)
+* [Milestone 4: Decision Trees for Regression](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone4)
+* [Milestone 5: Features Engineering (study and selection)](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone5)
+* [Milestone 6: Predictive Model Building](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone6)
+* [Milestone 7: Model Improvement](https://github.com/CarlosCordoba96/Machine-Learning-techniques/tree/master/Milestone7)
 
 ## Software
-This project has been coded using Python 2.7
+This project has been coded using Python 2.7, with IDE Spyder for coding and compilation.
 
 ## Members
 * Carlos Córdoba Ruiz
